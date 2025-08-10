@@ -1,8 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #ffffff; /* white background */
+  --foreground: #2d2f33; /* main text color rgb(45,47,51) */
+
+  /* Palette from screenshot */
+  --peach: #d6a99d;
+  --cream: #fbf3d5;
+  --sage: #d6dac8;
+  --tealgray: #9cafaa;
+
+  /* Slightly darker companions for depth */
+  --peach-700: #b8877d;
+  --cream-700: #e6dcb8;
+  --sage-700: #bfc6b1;
+  --tealgray-700: #7f9491;
 }
 
 @theme inline {
@@ -10,17 +22,85 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-serif-display);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* Keep background/text consistent across color schemes via CSS variables */
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Display font utility mapped to Fraunces via CSS var */
+.font-display {
+  font-family: var(--font-serif);
+}
+
+/* Gradient text utility: tealgray → peach */
+.text-gradient-tealgray-peach {
+  background: linear-gradient(90deg, var(--tealgray), var(--peach));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700; /* bold */
+}
+
+/* Button gradient utility: tealgray → tealgray-700 */
+.button-gradient-tealgray {
+  background-image: linear-gradient(90deg, var(--tealgray), var(--tealgray-700));
+}
+
+/* Outline button with hover peach gradient */
+.button-outline-peach {
+  background: transparent;
+  color: var(--foreground);
+  border: 2px solid var(--peach);
+  border-radius: 9999px;
+  transition:
+    transform 150ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-image 200ms ease,
+    color 200ms ease,
+    border-color 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.button-outline-peach:hover {
+  background-image: linear-gradient(90deg, var(--peach), var(--peach-700));
+  color: white;
+  border-color: transparent;
+  transform: translateY(-2px);
+}
+
+/* Utility classes for gradient orbs and arcs */
+.orb {
+  position: absolute;
+  filter: blur(16px);
+  border-radius: 9999px;
+  opacity: 0.9;
+}
+
+.orb--teal {
+  /* tealgray-centered orb */
+  background: radial-gradient(circle at 30% 30%, var(--cream) 0%, var(--tealgray) 55%, var(--tealgray-700) 100%);
+}
+
+.orb--sunset {
+  /* peach-centered orb */
+  background: radial-gradient(circle at 30% 30%, var(--cream) 0%, var(--peach) 55%, var(--peach-700) 100%);
+}
+
+.orb--sage {
+  /* peach-centered orb */
+  background: radial-gradient(circle at 30% 30%, var(--cream) 0%, var(--sage) 55%, var(--sage-700) 100%);
+}
+
+.arc {
+  position: absolute;
+  width: 1200px;
+  height: 1200px;
+  border-top-left-radius: 9999px;
+  border-top-right-radius: 9999px;
+  border: 1px solid rgba(14, 165, 233, 0.25);
+  transform: translate(-50%, -50%);
 }
