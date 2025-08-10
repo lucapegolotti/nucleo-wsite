@@ -4,6 +4,8 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -23,6 +25,11 @@ export const metadata: Metadata = {
   title: "Nucleo Research",
   description:
     "Get more from medical images",
+  icons: {
+    icon: [{ url: `${basePath}/favicon.png` }],
+    apple: [{ url: `${basePath}/favicon.png` }],
+    shortcut: [{ url: `${basePath}/favicon.png` }],
+  },
 };
 
 export default function RootLayout({
