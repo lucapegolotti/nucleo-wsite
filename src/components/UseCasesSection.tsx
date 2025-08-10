@@ -1,4 +1,5 @@
 import Image from "next/image";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 export default function UseCasesSection() {
   const items = [
     {
@@ -6,21 +7,21 @@ export default function UseCasesSection() {
       title: "Sarcopenia Detection",
       description:
         "Automatic detection and quantification of muscle mass in CT scans, providing crucial nutritional metrics for cancer patients and improving treatment efficacy.",
-      image: "/media/sarcopenia.png",
+      image: `${basePath}/media/sarcopenia.png`,
     },
     {
       id: "02",
       title: "Tumor Lesion Sizing",
       description:
         "Precise and consistent measurement of tumor lesions in CT scans, enabling accurate tracking of disease progression and treatment response.",
-      image: "/media/lesion_measure.png",
+      image: `${basePath}/media/lesion_measure.png`,
     },
     {
       id: "03",
       title: "Target vs Non-Target Lesion Classification",
       description:
         "Automated classification of lesions according to RECIST criteria, streamlining the evaluation process and enhancing reporting consistency.",
-      image: "/media/target_vs_nontarget.png",
+      image: `${basePath}/media/target_vs_nontarget.png`,
     },
   ];
 

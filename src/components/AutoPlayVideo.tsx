@@ -14,6 +14,9 @@ export default function AutoPlayVideo({
   className = "",
 }: AutoPlayVideoProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  const normalizedSrc = src.startsWith("/") ? src : `/${src}`;
+  const fullSrc = `${basePath || ""}${normalizedSrc}`;
 
   useEffect(() => {
     const video = videoRef.current;
@@ -40,7 +43,7 @@ export default function AutoPlayVideo({
   return (
     <video
       ref={videoRef}
-      src={src}
+      src={fullSrc}
       autoPlay
       muted
       loop
