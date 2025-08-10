@@ -41,7 +41,6 @@ function Orb({
 }
 
 export default function Home() {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   return (
     <main className="relative min-h-screen">
       {/* Decorative orbs*/}
@@ -68,7 +67,7 @@ export default function Home() {
           </div>
           <div id="product" className="mt-20 sm:mt-28 w-full flex justify-center px-0 sm:px-6">
             <AutoPlayVideo
-              src={`${basePath}/media/demo.mp4`}
+              src="/media/demo.mp4"
               playbackRate={1.2}
               className="w-full max-w-5xl rounded-3xl ring-1 ring-white/10 shadow-lg"
             />
