@@ -4,7 +4,7 @@ export default function UseCasesSection() {
   const items = [
     {
       id: "01",
-      title: "Sarcopenia Detection",
+      title: "Body composition and sarcopenia assessment",
       description:
         "Automatic detection and quantification of muscle mass in CT scans, providing crucial nutritional metrics for cancer patients and improving treatment efficacy.",
       image: `${basePath}/media/sarcopenia.png`,

@@ -65,7 +65,7 @@ export default function PerformanceSection() {
         colorVar: "--tealgray",
       },
       {
-        label: "BIA",
+        label: "The industry standard (BIA)",
         valuePercent: 75,
         colorVar: "--sage",
       },
