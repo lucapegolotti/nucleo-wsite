@@ -11,7 +11,6 @@ export default function Header() {
     { label: "Product", href: "#product" },
     { label: "Use Cases", href: "#use-cases" },
     { label: "Performance", href: "#performance" },
-    { label: "Team", href: "#team" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -42,7 +41,7 @@ export default function Header() {
 
         {/* Desktop navigation */}
         <nav className="hidden md:flex items-center gap-10">
-          {links.slice(0, 4).map((link) => (
+          {links.slice(0, 3).map((link) => (
             <a key={link.label} href={link.href} className="text-sm hover:opacity-80">
               {link.label}
             </a>

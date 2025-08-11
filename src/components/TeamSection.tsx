@@ -53,7 +53,7 @@ export default function TeamSection() {
     },
     {
       id: "2",
-      name: "Luca Pegolotti, Phd",
+      name: "Luca Pegolotti, PhD",
       qualifications: "CTO. Ex Stanford, Apple, EPFL",
       image: `${basePath}/media/team/luca.png`,
     },

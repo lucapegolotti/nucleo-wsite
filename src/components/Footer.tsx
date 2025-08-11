@@ -4,7 +4,6 @@ export default function Footer() {
     { label: "Product", href: "#product" },
     { label: "Use Cases", href: "#use-cases" },
     { label: "Performance", href: "#performance" },
-    { label: "Team", href: "#team" },
     { label: "Contact", href: "#contact" },
   ];
 

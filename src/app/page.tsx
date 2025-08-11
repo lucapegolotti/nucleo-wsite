@@ -5,7 +5,6 @@ import RandomOrbs from "@/components/RandomOrbs";
 import UseCasesSection from "@/components/UseCasesSection";
 import PerformanceSection from "@/components/PerformanceSection";
 import ContactSection from "@/components/ContactSection";
-import TeamSection from "@/components/TeamSection";
 
 function CTAButton() {
   return (
@@ -87,9 +86,6 @@ export default function Home() {
 
       {/* Performance section */}
       <PerformanceSection />
-
-      {/* Team section */}
-      <TeamSection />
 
       {/* Contact section */}
       <ContactSection />
