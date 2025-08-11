@@ -19,22 +19,26 @@ function Avatar({ member }: { member: TeamMember }) {
   const size = 160; // px
   if (member.image) {
     return (
-      <Image
-        src={member.image}
-        alt={`${member.name} headshot`}
-        width={size}
-        height={size}
-        className="h-40 w-40 rounded-full object-cover border border-black/10"
-      />
+      <div className="relative h-40 w-40 rounded-full border border-black/10 overflow-hidden">
+        <Image
+          src={member.image}
+          alt={`${member.name} headshot`}
+          width={size}
+          height={size}
+          className="h-full w-full object-cover grayscale transition-transform duration-300 ease-out group-hover:scale-105 group-hover:grayscale-0"
+        />
+      </div>
     );
   }
 
   return (
-    <div
-      className="h-40 w-40 rounded-full border border-black/10 bg-gradient-to-br from-slate-200 to-slate-300 text-slate-500 flex items-center justify-center font-semibold"
-      aria-label={`${member.name} placeholder headshot`}
-    >
-      {getInitials(member.name) || ""}
+    <div className="relative h-40 w-40 rounded-full border border-black/10 overflow-hidden">
+      <div
+        className="h-full w-full bg-gradient-to-br from-slate-200 to-slate-300 text-slate-500 flex items-center justify-center font-semibold transition-transform duration-300 ease-out group-hover:scale-105"
+        aria-label={`${member.name} placeholder headshot`}
+      >
+        {getInitials(member.name) || ""}
+      </div>
     </div>
   );
 }
@@ -69,7 +73,7 @@ export default function TeamSection() {
 
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 place-items-center">
           {members.map((member) => (
-            <div key={member.id} className="flex flex-col items-center text-center">
+            <div key={member.id} className="group flex flex-col items-center text-center">
               <Avatar member={member} />
               <h3 className="mt-5 font-display text-xl text-slate-700">{member.name}</h3>
               <p className="mt-1 text-slate-600">{member.qualifications}</p>
