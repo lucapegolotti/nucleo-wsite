@@ -1,9 +1,11 @@
 // Landing hero with CTA and decorative orbs
 import AutoPlayVideo from "@/components/AutoPlayVideo";
 import Parallax from "@/components/Parallax";
+import RandomOrbs from "@/components/RandomOrbs";
 import UseCasesSection from "@/components/UseCasesSection";
 import PerformanceSection from "@/components/PerformanceSection";
 import ContactSection from "@/components/ContactSection";
+import TeamSection from "@/components/TeamSection";
 
 function CTAButton() {
   return (
@@ -43,12 +45,17 @@ function Orb({
 export default function Home() {
   return (
     <main className="relative min-h-screen">
+      <RandomOrbs count={14} areaHeightPx={1600} seed={20240829} />
       {/* Decorative orbs*/}
       <Orb className="-left-32 -top-24" variant="teal" size={300} />
       <Orb className="-right-24 top-40" variant="sunset" size={360} />
       <Orb className="-left-0 top-130" variant="sage" size={360} />
       {/* <Orb className="left-1/2 -translate-x-1/2 top-350" variant="sage" size={120} /> */}
       <Orb className="left-1/2 translate-x-[-400px] top-350" variant="sunset" size={500} />
+      <Orb className="-right-0 top-500" variant="sage" size={360} />
+      <Orb className="left-1/2 translate-x-[-1000px] top-600" variant="teal" size={360} />
+      <Orb className="left-1/2 translate-x-[-200px] top-520" variant="cream" size={80} />
+      <Orb className="left-1/2 translate-x-[-400px] top-600" variant="sunset" size={500} />
 
       {/* Hero */}
       <section className="relative isolate overflow-hidden py-28 sm:py-36">
@@ -69,7 +76,7 @@ export default function Home() {
             <AutoPlayVideo
               src="/media/demo.mp4"
               playbackRate={1.2}
-              className="w-full max-w-5xl rounded-3xl ring-1 ring-white/10 shadow-lg"
+              className="w-full max-w-5xl rounded-3xl shadow-lg gradient-border-teal-peach"
             />
           </div>
         </div>
@@ -80,6 +87,9 @@ export default function Home() {
 
       {/* Performance section */}
       <PerformanceSection />
+
+      {/* Team section */}
+      <TeamSection />
 
       {/* Contact section */}
       <ContactSection />

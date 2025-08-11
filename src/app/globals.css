@@ -95,6 +95,11 @@ body {
   background: radial-gradient(circle at 30% 30%, var(--cream) 0%, var(--sage) 55%, var(--sage-700) 100%);
 }
 
+.orb--cream {
+  /* peach-centered orb */
+  background: radial-gradient(circle at 30% 30%, var(--cream) 0%, var(--sage) 55%, var(--cream-700) 100%);
+}
+
 .arc {
   position: absolute;
   width: 1200px;
@@ -103,4 +108,14 @@ body {
   border-top-right-radius: 9999px;
   border: 1px solid rgba(14, 165, 233, 0.25);
   transform: translate(-50%, -50%);
+}
+
+/* Gradient border utility: tealgray → peach */
+.gradient-border-teal-peach {
+  /* Use transparent border plus layered backgrounds to simulate gradient border */
+  border: 5px solid transparent;
+  /* Respect the element's existing border-radius (e.g., rounded-3xl) */
+  background:
+    linear-gradient(var(--background), var(--background)) padding-box,
+    linear-gradient(90deg, var(--tealgray), var(--peach)) border-box;
 }
