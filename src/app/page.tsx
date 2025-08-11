@@ -44,7 +44,7 @@ function Orb({
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen">
+    <main className="relative min-h-screen overflow-x-hidden">
       <RandomOrbs count={14} areaHeightPx={1600} seed={20240829} />
       {/* Decorative orbs*/}
       <Orb className="-left-32 -top-24" variant="teal" size={300} />

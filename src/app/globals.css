@@ -32,6 +32,18 @@ body {
   color: var(--foreground);
 }
 
+/* Prevent horizontal scrolling on small viewports */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Ensure mobile menu overlay always paints solid white on top */
+.mobile-menu-root {
+  background-color: white !important;
+}
+
 /* Display font utility mapped to Fraunces via CSS var */
 .font-display {
   font-family: var(--font-serif);

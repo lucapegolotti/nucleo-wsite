@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ""; // retained if needed elsewhere
 
@@ -15,13 +15,24 @@ export default function Header() {
     { label: "Contact", href: "#contact" },
   ];
 
+  // Prevent background scroll when the menu is open
+  useEffect(() => {
+    if (isOpen) {
+      const previous = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = previous;
+      };
+    }
+  }, [isOpen]);
+
   const headerClass = isOpen
     ? "sticky top-0 z-50 bg-white border-b border-black/5"
     : "sticky top-0 z-50 bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 border-b border-black/5";
 
   return (
     <header className={headerClass}>
-      <div className="mx-auto max-w-6xl px-6 h-12 sm:h-14 flex items-center justify-between">
+      <div className="mx-auto max-w-6xl px-6 h-12 sm:h-14 flex items-center justify-between overflow-x-hidden">
         <a href="#" className="flex items-center">
           <span className="font-display text-[22px] sm:text-[24px] leading-none tracking-tight">
             Nucleo
@@ -67,10 +78,15 @@ export default function Header() {
         </button>
       </div>
 
+      {/* Solid white backdrop to guarantee no transparency bleed-through */}
+      <div
+        className={`${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"} md:hidden fixed inset-0 z-[900] bg-white transition-opacity duration-200`}
+      />
+
       {/* Mobile drawer */}
       <div
         id="mobile-menu"
-        className={`md:hidden fixed inset-0 z-50 h-full w-full bg-white transform transition-transform duration-200 ${
+        className={`mobile-menu-root md:hidden fixed inset-0 z-[1000] h-full w-full bg-white transform transition-transform duration-200 ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

@@ -25,7 +25,7 @@ function Avatar({ member }: { member: TeamMember }) {
           alt={`${member.name} headshot`}
           width={size}
           height={size}
-          className="h-full w-full object-cover grayscale transition-transform duration-300 ease-out group-hover:scale-105 group-hover:grayscale-0"
+          className="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-105"
         />
       </div>
     );
@@ -67,7 +67,7 @@ export default function TeamSection() {
   ];
 
   return (
-    <section id="team" className="relative isolate pt-12 sm:pt-16 pb-24 sm:pb-28">
+    <section id="team" className="relative isolate pt-12 sm:pt-16 pb-24 sm:pb-28 overflow-x-hidden">
       <div className="mx-auto max-w-6xl px-6">
         <h2 className="font-display text-center text-4xl sm:text-5xl text-slate-700">Team</h2>
 
