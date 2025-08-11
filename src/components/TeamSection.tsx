@@ -1,4 +1,5 @@
 import Image from "next/image";
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 type TeamMember = {
   id: string;
@@ -44,21 +45,21 @@ export default function TeamSection() {
       id: "1",
       name: "Angelica Iacovelli, Msc",
       qualifications: "CEO. Ex Stanford, Polimi",
-      image: "/media/team/angelica.jpeg",
+      image: `${basePath}/media/team/angelica.jpeg`,
     },
     {
       id: "2",
       name: "Luca Pegolotti, Phd",
       qualifications: "CTO. Ex Stanford, Apple, EPFL",
-      image: "/media/team/luca.png",
+      image: `${basePath}/media/team/luca.png`,
     },
     {
       id: "3",
       name: "Michele Ghidini, MD, PhD",
       qualifications: "CSO. General Hospital Milan, The Royal Marsden",
-      image: "/media/team/michele.jpg",
+      image: `${basePath}/media/team/michele.jpg`,
     },
-    { id: "4", name: "Alessio Pigazzi, MD, PhD", qualifications: "Advisor. Cedars Sinai, City of Hope", image: "/media/team/alessio.png" },
+    { id: "4", name: "Alessio Pigazzi, MD, PhD", qualifications: "Advisor. Cedars Sinai, City of Hope", image: `${basePath}/media/team/alessio.png` },
   ];
 
   return (
